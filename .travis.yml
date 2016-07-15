@@ -1,0 +1,6 @@
+# "sudo:required" means "docker available"
+sudo: required
+dist: trusty
+
+script:
+- ./test/test-ci.sh
