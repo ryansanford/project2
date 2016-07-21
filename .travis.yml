@@ -6,4 +6,5 @@ script:
 - ./test/test-ci.sh
 
 after_success:
+# Split out build steps to script to avoid yml parsing issues of the commands.
 - bash ./docker-build.sh
