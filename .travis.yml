@@ -7,4 +7,4 @@ script:
 
 after_success:
 # Split out build steps to script to avoid yml parsing issues of the commands.
-- bash -x ./build-trigger.sh Tag "${TRAVIS_TAG}" "${TRIGGER_URL}"
+- bash -x ./build-trigger.sh Tag "${TRAVIS_TAG}" "${DOCKERHUB_TRIGGER_URL}"
