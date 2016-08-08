@@ -1,10 +1,10 @@
 # "sudo:required" means "docker available"
-sudo: false
+sudo: required
 
 install:
 # Orthanc requirements
-    - apt-get update
-    - apt-get install build-essential unzip cmake mercurial
+    - sudo apt-get update
+    - sudo apt-get install build-essential unzip cmake mercurial
       uuid-dev libcurl4-openssl-dev liblua5.1-0-dev
       libgtest-dev libpng-dev libsqlite3-dev libssl-dev libjpeg-dev
       zlib1g-dev libdcmtk2-dev libboost1.48-all-dev libwrap0-dev
