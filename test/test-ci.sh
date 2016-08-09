@@ -6,7 +6,6 @@ ls -al *
 
 # Orthanc
 if [ ! -f "~/${ORTHANC_BUILD}/Orthanc" ]; then
-  cd ~
   curl http://www.orthanc-server.com/downloads/get.php?path=/orthanc/$ORTHANC_VERSION.tar.gz | tar xz
   mkdir -p "~/$ORTHANC_BUILD"
   cd "~/$ORTHANC_BUILD"
@@ -17,7 +16,6 @@ else
 fi
 
 ls -al
-./Orthanc
 
 
 
