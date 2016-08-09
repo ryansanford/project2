@@ -1,6 +1,8 @@
 # "sudo:required" means "docker available"
-sudo: required
-
+sudo: false
+language: python
+python:
+    - "2.7"
 
 env:
     global:
@@ -9,16 +11,16 @@ env:
 
 cache:
     directories:
-        - ~/$ORTHANC_BUILD
+        - $ORTHANC_BUILD
 
-install:
+#install:
 # Orthanc requirements
-    - sudo apt-get update
-    - sudo apt-get install build-essential unzip cmake mercurial
-      uuid-dev libcurl4-openssl-dev liblua5.1-0-dev
-      libgtest-dev libpng-dev libsqlite3-dev libssl-dev libjpeg-dev
-      zlib1g-dev libdcmtk2-dev libboost1.48-all-dev libwrap0-dev
-      libcharls-dev
+#    - sudo apt-get update
+#    - sudo apt-get install build-essential unzip cmake mercurial
+#      uuid-dev libcurl4-openssl-dev liblua5.1-0-dev
+#      libgtest-dev libpng-dev libsqlite3-dev libssl-dev libjpeg-dev
+#      zlib1g-dev libdcmtk2-dev libboost1.48-all-dev libwrap0-dev
+#      libcharls-dev
 
 script:
 - ./test/test-ci.sh
