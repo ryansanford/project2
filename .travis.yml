@@ -9,7 +9,7 @@ env:
 
 cache:
     directories:
-        - ~/$ORTHANC_BUILD
+        - $ORTHANC_BUILD
 
 install:
 # Orthanc requirements
