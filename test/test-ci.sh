@@ -21,5 +21,4 @@ ls -al
 ls -al *
 
 
-
 echo "Tests completed without error."
