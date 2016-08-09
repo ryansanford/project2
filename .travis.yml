@@ -1,6 +1,17 @@
 # "sudo:required" means "docker available"
 sudo: required
 
+
+env:
+    global:
+        - ORTHANC_VERSION="Orthanc-1.1.0"
+        - ORTHANC_BUILD="${ORTHANC_VERSION}Build"
+
+cache:
+    directories:
+        - ~/$ORTHANC_VERSION
+        - ~/$ORTHANC_BUILD
+
 install:
 # Orthanc requirements
     - sudo apt-get update
