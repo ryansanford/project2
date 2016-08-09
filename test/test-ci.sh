@@ -1,12 +1,8 @@
 #!/usr/bin/env bash
 set -e
 
-
-
-# Set cwd
-unset CDPATH
-cd "$( dirname "${BASH_SOURCE[0]}" )"
-
+cd ~
+ls -al *
 
 # Orthanc
 if [ ! -f "~/${ORTHANC_BUILD}/Orthanc" ]; then
