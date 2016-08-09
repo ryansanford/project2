@@ -21,6 +21,7 @@ else
 fi
 
 ls -al
+./Orthanc
 
 
 
