@@ -11,6 +11,7 @@ RUN apt-get update \
 		nano \
 		vim \
 		jq \
+		git \
 	&& rm -rf /var/lib/apt/lists/*
 
 
