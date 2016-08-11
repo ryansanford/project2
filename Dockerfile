@@ -12,3 +12,7 @@ RUN apt-get update \
 		vim \
 		jq \
 	&& rm -rf /var/lib/apt/lists/*
+
+
+COPY . /project2/
+RUN bash /project2/tag-print.sh > /project2/tag.txt
