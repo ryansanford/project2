@@ -19,4 +19,4 @@ if [ -z "${SOURCE_CONTROL_REF_NAME}" ] ; then
 fi
 
 TRIGGER_PAYLOAD="{\"source_type\": \"${SOURCE_CONTROL_REF_TYPE}\", \"source_name\": \"${SOURCE_CONTROL_REF_NAME}\"}"
-curl -H "Content-Type: application/json" --data "${TRIGGER_PAYLOAD}" -X POST "BREAK${TRIGGER_URL}"
+curl -H "Content-Type: application/json" --data "${TRIGGER_PAYLOAD}" -X POST "${TRIGGER_URL}"
