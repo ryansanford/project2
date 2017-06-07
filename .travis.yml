@@ -1,15 +1,19 @@
 # "sudo:required" means "docker available"
 sudo: required
-
+dist: trusty
+services:
+- docker
 
 env:
     global:
         - ORTHANC_VERSION="Orthanc-1.1.0"
-        - ORTHANC_BUILD="${ORTHANC_VERSION}Build"
+        - ORTHANC_BUILD="$HOME/.cache/${ORTHANC_VERSION}Build"
+        - DOCKER_DIR="$HOME/.cache/docker"
 
 cache:
     directories:
         - $ORTHANC_BUILD
+        - $DOCKER_DIR
 
 install:
 # Orthanc requirements
@@ -21,7 +25,10 @@ install:
       libcharls-dev
 
 script:
-- ./test/test-ci.sh
+- docker version
+- test -f "$DOCKER_DIR/image.tar" || docker load "$DOCKER_DIR/image.tar"
+- docker build -t my_image .
+- docker save my_image > "$DOCKER_DIR/image.tar"
 
 after_success:
 # Split out build steps to script to avoid yml parsing issues of the commands.
