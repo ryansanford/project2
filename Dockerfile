@@ -16,4 +16,5 @@ RUN apt-get update \
 
 
 COPY . /project2/
-RUN bash /project2/tag-print.sh > /project2/tag.txt
+RUN bash -c "echo 1"
+RUN bash -c "echo 2"
