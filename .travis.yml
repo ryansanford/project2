@@ -20,10 +20,13 @@ install:
     - sudo apt-get update
 
 script:
-- sudo docker version
+- pwd
+- ls -al
+- docker version
 - test -f "$DOCKER_DIR/image.tar" && sudo docker load -i "$DOCKER_DIR/image.tar"
-- sudo docker build -t my_image .
-- sudo docker save my_image > "$DOCKER_DIR/image.tar"
+- docker images -a
+- docker build -t my_image .
+- docker save my_image > "$DOCKER_DIR/image.tar"
 
 after_success:
 # Split out build steps to script to avoid yml parsing issues of the commands.

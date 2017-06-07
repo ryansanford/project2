@@ -14,8 +14,8 @@ RUN apt-get update \
 		git \
 	&& rm -rf /var/lib/apt/lists/*
 
-
-COPY . /project2/
 RUN bash -c "echo 1"
-RUN bash -c "echo 1.5"
 RUN bash -c "echo 2"
+COPY . /project2/
+RUN bash -c "echo 3"
+RUN bash -c "echo 4"
