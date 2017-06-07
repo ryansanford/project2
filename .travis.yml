@@ -18,17 +18,12 @@ cache:
 install:
 # Orthanc requirements
     - sudo apt-get update
-    - sudo apt-get install build-essential unzip cmake mercurial
-      uuid-dev libcurl4-openssl-dev liblua5.1-0-dev
-      libgtest-dev libpng-dev libsqlite3-dev libssl-dev libjpeg-dev
-      zlib1g-dev libdcmtk2-dev libboost1.48-all-dev libwrap0-dev
-      libcharls-dev
 
 script:
-- docker version
-- test -f "$DOCKER_DIR/image.tar" || docker load "$DOCKER_DIR/image.tar"
-- docker build -t my_image .
-- docker save my_image > "$DOCKER_DIR/image.tar"
+- sudo docker version
+- test -f "$DOCKER_DIR/image.tar" || sudo docker load "$DOCKER_DIR/image.tar"
+- sudo docker build -t my_image .
+- sudo docker save my_image > "$DOCKER_DIR/image.tar"
 
 after_success:
 # Split out build steps to script to avoid yml parsing issues of the commands.
