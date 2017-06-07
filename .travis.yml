@@ -4,6 +4,10 @@ dist: trusty
 services:
 - docker
 
+language: go
+go:
+  - 1.7
+
 env:
     global:
         - ORTHANC_VERSION="Orthanc-1.1.0"
@@ -15,6 +19,10 @@ cache:
         - $ORTHANC_BUILD
         - $DOCKER_DIR
 
+before_install:
+  - go get github.com/tonistiigi/buildcache/cmd/buildcache
+  - which buildcache
+
 install:
 # Orthanc requirements
     - sudo apt-get update
@@ -23,10 +31,12 @@ script:
 - pwd
 - ls -al
 - docker version
-- test -f "$DOCKER_DIR/image.tar" && sudo docker load -i "$DOCKER_DIR/image.tar"
+- test -f "$DOCKER_DIR/latest_cache.tar.gz" && sudo docker load -i "$DOCKER_DIR/latest_cache.tar.gz"
 - docker images -a
 - docker build -t my_image .
-- docker save my_image > "$DOCKER_DIR/image.tar"
+#- docker save my_image > "$DOCKER_DIR/image.tar"
+- sudo `which buildcache` save -o "$DOCKER_DIR/latest_cache.tar.gz" my_image
+
 
 after_success:
 # Split out build steps to script to avoid yml parsing issues of the commands.
