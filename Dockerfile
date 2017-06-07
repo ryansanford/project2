@@ -18,4 +18,5 @@ RUN bash -c "echo 1"
 RUN bash -c "echo 2"
 COPY . /project2/
 RUN bash -c "echo 3"
+RUN bash -c "echo 3.5"
 RUN bash -c "echo 4"
