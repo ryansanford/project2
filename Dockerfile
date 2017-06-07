@@ -17,4 +17,5 @@ RUN apt-get update \
 
 COPY . /project2/
 RUN bash -c "echo 1"
+RUN bash -c "echo 1.5"
 RUN bash -c "echo 2"

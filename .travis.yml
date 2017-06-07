@@ -21,7 +21,7 @@ install:
 
 script:
 - sudo docker version
-- test -f "$DOCKER_DIR/image.tar" || sudo docker load -i "$DOCKER_DIR/image.tar"
+- test -f "$DOCKER_DIR/image.tar" && sudo docker load -i "$DOCKER_DIR/image.tar"
 - sudo docker build -t my_image .
 - sudo docker save my_image > "$DOCKER_DIR/image.tar"
 
